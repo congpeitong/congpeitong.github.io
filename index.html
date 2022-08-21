@@ -1,96 +1,13 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>潍坊市红色基地导览</title>
-		<link href="css/map.css" rel="stylesheet" />
-	</head>
-	<body>
-		<div class="mapwrap" style="margin-left: 20%;">
-			<div class="mapwrap-title">
-				<img src="images/title.png" />
-			</div>
-			<div class="mapwrap-title-1">
-				<img src="images/mianhuai.png" />
-			</div>
-			<!--寿光 -->
-			<div>
-				<a href="shouguang.html" class="place shouguang"></a>
-				<button class="wzbtn sglsly">寿光革命烈士陵园</button>
-				<button class="wzbtn sgtlcjz">寿光市田柳镇崔家庄村</button>
-			</div>
-			<!--青州 -->
-			<div>
-				<a href="qingzhou.html" class="place qingzhou"></a>
-				<button class="wzbtn qzbd">北段村</button>
-				<button class="wzbtn qzdzl">东朱鹿村</button>
-				<button class="wzbtn qzlsly">青州市烈士陵园</button>
-			</div>
-			<!--临朐 -->
-			<div>
-				<a href="linqu.html" class="place linqu"></a>
-				<button class="wzbtn lqzjl">赵家楼村</button>
-				<button class="wzbtn lqlsly">临朐县烈士陵园</button>
-			</div>
-			<!--寒亭区 -->
-			<div>
-				<a href="hanting.html" class="place hanting"></a>
-				<button class="wzbtn htzyzhb">寒亭区潍县战役指挥部</button>
-			</div>
-			<!--潍城区 -->
-			<div>
-				<a href="weicheng.html" class="place weicheng"></a>
-				<button class="wzbtn wxdxjyjd">潍县战役党性教育基地</button>
-			</div>
-			<!--奎文区 -->
-			<div>
-				<a href="kuiwei.html" class="place kuiwei"></a>
-				<button class="wzbtn wfgmlsly">潍坊市革命烈士陵园</button>
-				<!-- <button class="wzbtn zljgj">庄龙甲故居</button> -->
-			</div>
-			<!--坊子区 -->
-			<div>
-				<a href="fangzi.html" class="place fangzi"></a>
-				<button class="wzbtn wnxwjz">潍南县委旧址</button>
-				<div class="gmjz">
-					<img src="images/jz.png" />
-				</div>
-			</div>
-			<!--昌乐区 -->
-			<div>
-				<a href="changle.html" class="place changle"></a>
-				<button class="wzbtn clgmclg">渤海走廊革命斗争陈列馆</button>
-				<button class="wzbtn clhsbwg">红色博物馆</button>
-			</div>
-			<!--安丘区 -->
-			<div>
-				<a href="anqiu.html" class="place anqiu"></a>
-				<button class="wzbtn aqlsly">安丘市烈士陵园</button>
-				<button class="wzbtn aqcxh">曹星海烈士纪念馆</button>
-				<button class="wzbtn aqhsb">黄石板坡村</button>
-			</div>
-			<!--诸城市 -->
-			<div>
-				<a href="zhucheng.html" class="place zhucheng"></a>
-				<button class="wzbtn zcwjm">王尽美烈士纪念馆</button>
-				<button class="wzbtn zclsly">诸城市革命烈士陵园</button>
-				<button class="wzbtn zcbxq">北杏社区</button>
-			</div>
-			<!--昌邑市 -->
-			<div>
-				<a href="changyi.html" class="place changyi"></a>
-				<button class="wzbtn cylsly">昌邑市烈士陵园</button>
-				<button class="wzbtn cykrlsc">昌邑县抗日殉国烈士祠</button>
-				<!-- <button class="wzbtn mqc">马渠村</button>
-				<button class="wzbtn xyzhdc">下营镇火道村</button>
-				<button class="wzbtn bzxdc">卜庄镇西董村</button> -->
-			</div>
-			<!--高密市 -->
-			<div>
-				<a href="gaomi.html" class="place gaomi"></a>
-				<button class="wzbtn gmhgl">红高粱抗战纪念馆</button>
-				<button class="wzbtn gmlsly">高密市烈士陵园</button>
-			</div>
-		</div>
-	</body>
-</html>
+---
+---
+
+<ul class="list pa0">
+  {% for post in site.posts %}
+  <li class="mv2">
+    <a href="{{ site.url }}{{ post.url }}" class="db pv1 link blue hover-mid-gray">
+      <time class="fr silver ttu">{{ post.date | date_to_string }} </time>
+      {{ post.title }}
+    </a>
+  </li>
+  {% endfor %}
+</ul>
