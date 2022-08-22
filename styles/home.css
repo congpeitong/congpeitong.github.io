@@ -88,15 +88,16 @@ a:hover {
     font-weight: bold;
     color: #333;
     flex: 1;
+    color: #ff4d4d;
     font-family: angelinaFont;
 }
 
 .topbar-button {
     margin-left: 0px;
     margin-right: 20px;
-    color: #ff4d4d;
+    color: #888;
     font-size: 28px;
-    font-family: SCRIPTINFont;
+    font-family: angelinaFont;
 }
 
 .slogan {
