@@ -16,7 +16,7 @@ ul{
 body {
     display: flex;
     flex-direction: row;
-    background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,1)), url("https://manateelazycat.github.io/pics/home/kurt_cobain.png");
+    background: linear-gradient(rgba(255,255,255,.8), rgba(255,255,255,1)), url("https://congpeitong.github.io/pics/home/kurt_cobain.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
