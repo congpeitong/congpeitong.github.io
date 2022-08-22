@@ -45,11 +45,11 @@ mysql.5.7
 ```
 9. 命令行中登录mysql
 ```sh
-mysql -u root -p
+    mysql -u root -p
 
-回车（Enter）后让你输入密码，该密码就是步骤7的密码
+    回车（Enter）后让你输入密码，该密码就是步骤7的密码
 ```
 10. 进入Mysql后修改密码
 ``` sh
-SET PASSWORD = PASSWORD('此处是你需要设置的密码');
+    SET PASSWORD = PASSWORD('此处是你需要设置的密码');
 ```
