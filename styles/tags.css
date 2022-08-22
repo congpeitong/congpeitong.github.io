@@ -29,7 +29,6 @@ a:hover {
 }
 
 .tag-box {
-    padding-left: 2%;
     display: flex;
     flex-direction: row;
 }
@@ -55,7 +54,7 @@ a:hover {
 }
 
 .category-name {
-    color: #ff704d;
+    color: #80ff80;
     margin-left: 10px;
     margin-right: 5px;
     display: inline;
@@ -69,6 +68,7 @@ a:hover {
 }
 
 #archives {
+    padding-left: 10px;
     width: 100%;
 }
 
