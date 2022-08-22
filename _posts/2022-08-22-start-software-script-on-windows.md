@@ -1,7 +1,7 @@
 ---
 layout: post
 title: windows下软件启动脚本
-categories: [windows]
+categories: [Windows]
 ---
 # OpenSoftWare.bat
 ``` bat
