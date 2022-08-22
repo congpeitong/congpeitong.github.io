@@ -1,0 +1,6 @@
+---
+layout: post
+title: My Second Blog
+categories: [Life]
+---
+welcome to my world
