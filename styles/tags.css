@@ -30,7 +30,6 @@ a:hover {
 
 .tag-box {
     padding-left: 20%;
-    align-content: center;
     display: flex;
     flex-direction: row;
 }
