@@ -95,7 +95,7 @@ a:hover {
     margin-left: 0px;
     margin-right: 20px;
     font-size: 28px;
-    color: #ff4d4d;
+    color: #888;
     font-family: angelinaFont;
 }
 
@@ -107,7 +107,7 @@ a:hover {
 }
 
 .topbar-button a {
-    color: #888;
+    color: #ff4d4d;
     text-decoration: none;
 }
 
