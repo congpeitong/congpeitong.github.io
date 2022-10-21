@@ -2,7 +2,7 @@
 # Site Settings
 
 baseURL = "https://example.com/"
-title = "Stay Hungry Stay Foolish"
+title = "Hugo Theme MemE"
 languageCode = "en"
 hasCJKLanguage = false
 # Copyright information (Markdown supported)
@@ -98,17 +98,17 @@ uglyURLs = false
 # Author’s information
 [author]
     # Name
-    name = "congpeitong"
+    name = "reuixiy"
     # Email
-    email = "congpeitong2022@163.com"
+    email = "reuixiy@gmail.com"
     # Motto or introduction
-    motto = "Stay Hungry Stay Foolish"
+    motto = "Viva La Vida"
     # Avatar
     avatar = "/icons/apple-touch-icon.png"
     # Personal website, default: baseURL
     website = "https://io-oi.me/"
     # Twitter
-    # twitter = "reuixiy"
+    twitter = "reuixiy"
 
 # Related content
 [related]
@@ -203,22 +203,22 @@ uglyURLs = false
 
 [menu]
     ## Menu bar
-    #[[menu.main]]
-    #    pageref = "/"
-    #    name = "Home"
-    #    weight = 1
-    #    pre = "internal"
-    #    post = "home"
+    # [[menu.main]]
+    #     pageref = "/"
+    #     name = "Home"
+    #     weight = 1
+    #     pre = "internal"
+    #     post = "home"
     [[menu.main]]
         pageref = "/posts/"
         name = "Posts"
-        weight = 3
+        weight = 2
         pre = "internal"
         post = "archive"
     [[menu.main]]
         pageref = "/categories/"
         name = "Categories"
-        weight = 4
+        weight = 3
         pre = "internal"
         post = "th"
     [[menu.main]]
@@ -357,7 +357,7 @@ uglyURLs = false
     # Note: used for HTML head meta, JSON-LD,
     #       Open Graph, Atom, RSS
 
-    siteCreatedTime = "2021-05-20T20:17:43+00:00"
+    siteCreatedTime = "1969-07-20T20:17:43+00:00"
     # ATTENTION: keep this format, change
     #            the number
 
