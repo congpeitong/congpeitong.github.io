@@ -1,9 +1,7 @@
-##########################################
-# Site Settings
+baseURL = "https://congpeitong.github.io"
+title = "江湖散人"
+languageCode = "zh-cn"
 
-baseURL = "https://example.com/"
-title = "Hugo Theme MemE"
-languageCode = "en"
 hasCJKLanguage = false
 # Copyright information (Markdown supported)
 copyright = "[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)"
@@ -15,7 +13,7 @@ theme = "meme"
 newContentEditor = ""
 
 # i18n
-defaultContentLanguage = "en"
+defaultContentLanguage = "zh-cn"
 defaultContentLanguageInSubdir = false
 
 # Pluralize titles in lists?
@@ -97,16 +95,13 @@ uglyURLs = false
 
 # Author’s information
 [author]
-    # Name
-    name = "reuixiy"
-    # Email
-    email = "reuixiy@gmail.com"
-    # Motto or introduction
-    motto = "Viva La Vida"
+    name = "congpeitong"
+    email = "congpeitong2022@163.com"
+    motto = "Stay Hungry Stay Foolish" # 座右铭
     # Avatar
     avatar = "/icons/apple-touch-icon.png"
     # Personal website, default: baseURL
-    website = "https://io-oi.me/"
+    website = "https://www.github.com/congpeitong/"
     # Twitter
     twitter = "reuixiy"
 
@@ -201,6 +196,7 @@ uglyURLs = false
 #               flex: `theme-switcher`,
 #               `lang-switcher`, `search`)
 
+# 配置目录
 [menu]
     ## Menu bar
     # [[menu.main]]
@@ -255,7 +251,7 @@ uglyURLs = false
 
     enableHeader = true
 
-    enableHeaderAutoHide = false
+    enableHeaderAutoHide = true
     # Note: works for header layout flex only
 
     displayHeaderInHome = true
@@ -357,7 +353,7 @@ uglyURLs = false
     # Note: used for HTML head meta, JSON-LD,
     #       Open Graph, Atom, RSS
 
-    siteCreatedTime = "1969-07-20T20:17:43+00:00"
+    siteCreatedTime = "2021-07-20T20:17:43+00:00"
     # ATTENTION: keep this format, change
     #            the number
 
@@ -500,7 +496,7 @@ uglyURLs = false
     # Atom & RSS
 
     # Include full content?
-    includeContent = true
+    includeContent = ""
     # Note: If false, only the summary of
     #       the post will be included. The
     #       summary, Hugo automatically
