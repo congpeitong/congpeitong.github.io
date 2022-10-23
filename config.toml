@@ -1,7 +1,7 @@
 #######################################################
 # 站点配置
 
-#baseURL = "https://congpeitong.github.io/"
+baseURL = "https://congpeitong.github.io/"
 title = "江湖散人"
 languageCode = "zh-cn"
 
@@ -42,8 +42,8 @@ paginate = 5
 
 # URL 相关
 disablePathToLower = false
-relativeURLs = false
-uglyURLs = false
+relativeURLs = true
+uglyURLs = true
 
 # URL 结构
 [permalinks]
