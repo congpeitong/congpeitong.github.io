@@ -1,7 +1,7 @@
 #######################################################
 # 站点配置
 
-baseURL = "https://congpeitong.github.io/"
+#baseURL = "https://congpeitong.github.io/"
 title = "江湖散人"
 languageCode = "zh-cn"
 
