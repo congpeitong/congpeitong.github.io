@@ -1326,7 +1326,7 @@ uglyURLs = true
 
     # 说明：需要开启 `SearchIndex` 的输出
 
-    enableLunrSearch = true
+    enableLunrSearch = t
     # 说明：https://lunrjs.com/
 
 
