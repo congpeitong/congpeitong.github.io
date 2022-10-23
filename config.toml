@@ -1047,10 +1047,10 @@ uglyURLs = true
     # 文章的 Git 版本信息
 
     # 是否开启
-    enablePostGitInfo = false
+    enablePostGitInfo = true
 
     # 是否显示（全局设置）
-    displayPostGitInfo = false
+    displayPostGitInfo = true
     # 说明：文章的 Front Matter 中的 `gitinfo`
     #      的优先级高于此处
 
@@ -1240,7 +1240,7 @@ uglyURLs = true
     # 多语言
 
     # 是否开启多语言按钮
-    enableLangToggle = false
+    enableLangToggle = true
 
     # 是否在首页隐藏多语言按钮
     hideLangToggleInHome = false
@@ -1326,7 +1326,7 @@ uglyURLs = true
 
     # 说明：需要开启 `SearchIndex` 的输出
 
-    enableLunrSearch = false
+    enableLunrSearch = true
     # 说明：https://lunrjs.com/
 
 
