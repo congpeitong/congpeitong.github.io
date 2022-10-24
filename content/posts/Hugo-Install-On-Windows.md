@@ -1,7 +1,7 @@
 ---
 title: "Windows 下安装Hugo"
 date: 2022-10-21T13:43:30+08:00
-draft: true
+draft: false
 categories: ["Hugo"]
 ---
 

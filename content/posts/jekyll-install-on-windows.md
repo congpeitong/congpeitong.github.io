@@ -1,7 +1,7 @@
 ---
 title: "Windows 下安装Jekyll"
 date: 2022-10-21T15:49:30+08:00
-draft: true
+draft: false
 categories: ["Jekyll"]
 ---
 # 网站托管
