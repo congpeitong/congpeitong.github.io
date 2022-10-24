@@ -35,10 +35,14 @@ git submodule add --depth 1 https://github.com/reuixiy/hugo-theme-meme.git theme
 ```
 ### 运行
 ```shell
-~/blog $ hugo server -D
+~/blog $ hugo server -D    // 草稿博客也会显示
+~/blog $ hugo server    // 草稿博客不显示
 ```
 如果提示某个错误（这个错误忘记截图了），根据官方文档安装hugo-extended
 ```shell
 choco install hugo-extended -confirm
 ```
 再次运行，根据提示的URL地址可查看此博客界面
+### GitHub上配置flowwork
+打开GitHub上托管的博客目录，点击setting，左边找到Pages,右边会有Build and deployment,Source选择GitHub Actions,然后再选择你使用的模板，比如Hugo,配置不用改直接保存就行了，
+之后本地写完博客后直接push就可以了，GitHub会帮你自动编译了，不需要你运行Hugo命令去编译博客后再push了
