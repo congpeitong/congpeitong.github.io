@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-cn">
+    <title type="text">江湖散人</title>
+    <subtitle type="html">This is my Blog</subtitle>
+    <updated>2022-10-24T08:45:34&#43;08:00</updated>
+    <id>https://congpeitong.github.io/</id>
+    <link rel="alternate" type="text/html" href="https://congpeitong.github.io/" />
+    <link rel="self" type="application/atom&#43;xml" href="https://congpeitong.github.io/atom.xml" />
+    <author>
+            <name>congpeitong</name>
+            <uri>https://congpeitong.github.io/</uri>
+            
+                <email>congpeitong2022@163.com</email>
+            </author>
+    <rights>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</rights>
+    <generator uri="https://gohugo.io/" version="0.104.3">Hugo</generator>
+</feed>

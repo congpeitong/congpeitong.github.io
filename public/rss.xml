@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+
+
+
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>江湖散人</title>
+        <link>https://congpeitong.github.io/</link>
+        <description>This is my Blog</description>
+        <generator>Hugo 0.104.3 https://gohugo.io/</generator>
+        
+            <language>zh-cn</language>
+        
+        
+            <managingEditor>congpeitong2022@163.com (congpeitong)</managingEditor>
+        
+        
+            <webMaster>congpeitong2022@163.com (congpeitong)</webMaster>
+        
+        
+            <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
+        
+        <lastBuildDate>Mon, 24 Oct 2022 08:45:34 &#43;0800</lastBuildDate>
+        
+            <atom:link rel="self" type="application/rss&#43;xml" href="https://congpeitong.github.io/rss.xml" />
+        
+        
+    </channel>
+</rss>
