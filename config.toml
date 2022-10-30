@@ -2,7 +2,7 @@
 # 站点配置
 
 baseURL = "https://congpeitong.github.io/"
-title = "江湖散人"
+title = "无名之辈"
 languageCode = "zh-cn"
 
 hasCJKLanguage = false

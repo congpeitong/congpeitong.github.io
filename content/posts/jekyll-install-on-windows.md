@@ -17,7 +17,7 @@ jekyll相当于一个编译工具，安装后可以通过jekyll创建一个网�
     gem install jekyll
 ```
 如果出现以下错误则执行命令
-![gem install jekyll 安装时出现的错误](/pictures/jekyll/gem_install_jekyll_error.png)
+![gem install jekyll 安装时出现的错误](https://congpeitong.github.io/pictrures/jekyll/gem_install_jekyll_error.png)
 ``` bat
     输入ridk install，安装MSYS2 and MINGW development toolchain
 ```
@@ -30,7 +30,7 @@ jekyll相当于一个编译工具，安装后可以通过jekyll创建一个网�
         jekyll server
     ```
     如果出现以下错误则在模板中执行命令
-    ![jekyll server 运行jekyll时出现的错误](pictures/jekyll/jekyll_server_error.png)
+    ![jekyll server 运行jekyll时出现的错误](https://congpeitong.github.io/pictrures/jekyll/gem_install_jekyll_error.png)
 
     ``` bat
 
