@@ -23,7 +23,7 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
         
-        <lastBuildDate>Mon, 24 Oct 2022 11:07:27 &#43;0800</lastBuildDate>
+        <lastBuildDate>Sun, 30 Oct 2022 20:46:26 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://congpeitong.github.io/rss.xml" />
         
@@ -60,7 +60,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;如果出现以下错误则执行命令
-&lt;img src=&#34;https://congpeitong.github.io/static/pictures/jekyll/gem_install_jekyll_error.png&#34; alt=&#34;gem install jekyll 安装时出现的错误&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;https://congpeitong.github.io/pictures/jekyll/gem_install_jekyll_error.png&#34; alt=&#34;gem install jekyll 安装时出现的错误&#34;&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -89,7 +89,7 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;如果出现以下错误则在模板中执行命令
-&lt;img src=&#34;https://congpeitong.github.io/static/pictures/jekyll/jekyll_server_error.png&#34; alt=&#34;jekyll server 运行jekyll时出现的错误&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;pictures/jekyll/jekyll_server_error.png&#34; alt=&#34;jekyll server 运行jekyll时出现的错误&#34;&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
@@ -280,9 +280,11 @@
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class=&#34;lntd&#34;&gt;
-&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;~/blog $ hugo server -D
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-shell&#34; data-lang=&#34;shell&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;~/blog $ hugo server -D    // 草稿博客也会显示
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;~/blog $ hugo server    // 草稿博客不显示
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;如果提示某个错误（这个错误忘记截图了），根据官方文档安装hugo-extended&lt;/p&gt;
@@ -295,6 +297,9 @@
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;p&gt;再次运行，根据提示的URL地址可查看此博客界面&lt;/p&gt;
+&lt;h3 id=&#34;github上配置flowwork&#34;&gt;GitHub上配置flowwork&lt;/h3&gt;
+&lt;p&gt;打开GitHub上托管的博客目录，点击setting，左边找到Pages,右边会有Build and deployment,Source选择GitHub Actions,然后再选择你使用的模板，比如Hugo,配置不用改直接保存就行了，
+之后本地写完博客后直接push就可以了，GitHub会帮你自动编译了，不需要你运行Hugo命令去编译博客后再push了&lt;/p&gt;
 </description>
                 
                 
