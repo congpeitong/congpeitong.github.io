@@ -1,7 +1,7 @@
 +++
 title = "Nginx基础"
-lastmod = 2022-11-14T08:58:07+08:00
-tags = ["Nginx"]
+lastmod = 2022-11-14T09:07:35+08:00
+categories = ["Nginx"]
 draft = false
 author = "congpeitong"
 +++
