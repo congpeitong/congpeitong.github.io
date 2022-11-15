@@ -329,7 +329,7 @@ uglyURLs = true
     # Note: used for JSON-LD, Open Graph
 
     # 站点的描述
-    siteDescription = "This is my Blog"
+    siteDescription = "这是我个人的博客，记录美好生活，记录工作"
     # 用于 HTML 的头部元数据、JSON-LD、
     #      Open Graph、Atom、RSS
 
