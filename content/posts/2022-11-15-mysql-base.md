@@ -1,8 +1,8 @@
 +++
 title = "Mysql 基础"
-lastmod = 2022-11-15T13:42:08+08:00
+lastmod = 2022-11-15T14:36:19+08:00
 categories = ["Mysql"]
-draft = true
+draft = false
 author = "congpeitong"
 +++
 
