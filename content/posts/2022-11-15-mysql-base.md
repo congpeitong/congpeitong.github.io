@@ -1,6 +1,6 @@
 +++
 title = "Mysql 基础"
-lastmod = 2022-11-15T14:36:19+08:00
+lastmod = 2022-11-15T23:01:33+08:00
 categories = ["Mysql"]
 draft = false
 author = "congpeitong"
@@ -401,519 +401,601 @@ count 计数
 
 ## 分页查询 {#分页查询}
 
-应用场景：
+-   应用场景：实际的web项目中需要根据用户的需求提交对应的分页查询的sql语句
 
-实际的web项目中需要根据用户的需求提交对应的分页查询的sql语句
+-   语法：
+    {{< highlight sql >}}
+    select 字段|表达式,...
+    from 表
+    【where 条件】
+    【group by 分组字段】
+    【having 条件】
+    【order by 排序的字段】
+    limit 【起始的条目索引，】条目数;
+    {{< /highlight >}}
+-   特点：
+    1.  起始条目索引从0开始
+    2.  limit子句放在查询语句的最后
+    3.  公式：select \* from  表 limit （page-1）\*sizePerPage,sizePerPage
 
-语法：
+        假如:每页显示条目数sizePerPage要显示的页数 page
 
-select 字段|表达式,...
-from 表
-【where 条件】
-【group by 分组字段】
-【having 条件】
-【order by 排序的字段】
-limit 【起始的条目索引，】条目数;
 
-特点：
+## 联合查询 {#联合查询}
 
-1.起始条目索引从0开始
+-   引入：
 
-2.limit子句放在查询语句的最后
+    union 联合、合并
 
-3.公式：select \* from  表 limit （page-1）\*sizePerPage,sizePerPage
-假如:
-每页显示条目数sizePerPage
-要显示的页数 page
+-   语法：
+    {{< highlight sql >}}
+    select 字段|常量|表达式|函数 【from 表】 【where 条件】 union 【all】
+    select 字段|常量|表达式|函数 【from 表】 【where 条件】 union 【all】
+    select 字段|常量|表达式|函数 【from 表】 【where 条件】 union  【all】
+    .....
+    select 字段|常量|表达式|函数 【from 表】 【where 条件】
+    {{< /highlight >}}
+-   特点：
+    1.  多条查询语句的查询的列数必须是一致的
+    2.  多条查询语句的查询的列的类型几乎相同
+    3.  union代表去重，union all代表不去重
 
-\## 进阶9：联合查询
 
-引入：
-	union 联合、合并
+## DML语言 {#dml语言}
 
-语法：
 
-select 字段|常量|表达式|函数 【from 表】 【where 条件】 union 【all】
-select 字段|常量|表达式|函数 【from 表】 【where 条件】 union 【all】
-select 字段|常量|表达式|函数 【from 表】 【where 条件】 union  【all】
-.....
-select 字段|常量|表达式|函数 【from 表】 【where 条件】
+### 插入 {#插入}
 
-特点：
+-   语法：
+    {{< highlight sql >}}
+    insert into 表名(字段名，...)
+    values(值1，...);
+    {{< /highlight >}}
+-   特点：
+    1.  字段类型和值类型一致或兼容，而且一一对应
+    2.  可以为空的字段，可以不用插入值，或用null填充
+    3.  不可以为空的字段，必须插入值
+    4.  字段个数和值的个数必须一致
+    5.  字段可以省略，但默认所有字段，并且顺序和表中的存储顺序一致
 
-1、多条查询语句的查询的列数必须是一致的
-2、多条查询语句的查询的列的类型几乎相同
-3、union代表去重，union all代表不去重
 
-\## DML语言
+### 修改 {#修改}
 
-\### 插入
+-   修改单表语法：
+    {{< highlight sql >}}
+    update 表名 set 字段=新值,字段=新值
+    【where 条件】
+    {{< /highlight >}}
+-   修改多表语法：
+    {{< highlight sql >}}
+    update 表1 别名1,表2 别名2
+    set 字段=新值，字段=新值
+    where 连接条件
+    and 筛选条件
+    {{< /highlight >}}
 
-语法：
-	insert into 表名(字段名，...)
-	values(值1，...);
 
-特点：
+### 删除 {#删除}
 
-1、字段类型和值类型一致或兼容，而且一一对应
-2、可以为空的字段，可以不用插入值，或用null填充
-3、不可以为空的字段，必须插入值
-4、字段个数和值的个数必须一致
-5、字段可以省略，但默认所有字段，并且顺序和表中的存储顺序一致
 
-\### 修改
+#### 方式1：delete语句 {#方式1-delete语句}
 
-修改单表语法：
+-   单表的删除： ★
+    {{< highlight sql >}}
+    delete from 表名 【where 筛选条件】
+    {{< /highlight >}}
+-   多表的删除：
+    {{< highlight sql >}}
+    delete 别名1，别名2
+    from 表1 别名1，表2 别名2
+    where 连接条件
+    and 筛选条件;
+    {{< /highlight >}}
 
-	update 表名 set 字段=新值,字段=新值
-	【where 条件】
-修改多表语法：
 
-update 表1 别名1,表2 别名2
-set 字段=新值，字段=新值
-where 连接条件
-and 筛选条件
+#### 方式2：truncate语句 {#方式2-truncate语句}
 
-\### 删除
-
-方式1：delete语句
-
-单表的删除： ★
-	delete from 表名 【where 筛选条件】
-
-多表的删除：
-	delete 别名1，别名2
-	from 表1 别名1，表2 别名2
-	where 连接条件
-	and 筛选条件;
-
-方式2：truncate语句
-
+{{< highlight sql >}}
 truncate table 表名
+{{< /highlight >}}
 
-两种方式的区别【面试题】
 
-\#1.truncate不能加where条件，而delete可以加where条件
+#### 两种方式的区别 {#两种方式的区别}
 
-\#2.truncate的效率高一丢丢
+1.  truncate不能加where条件，而delete可以加where条件
+2.  truncate的效率高一丢丢
+3.  truncate 删除带自增长的列的表后，如果再插入数据，数据从1开始,delete 删除带自增长列的表后，如果再插入数据，数据从上一次的断点处开始
+4.  truncate删除不能回滚，delete删除可以回滚
 
-\#3.truncate 删除带自增长的列的表后，如果再插入数据，数据从1开始
-\#delete 删除带自增长列的表后，如果再插入数据，数据从上一次的断点处开始
 
-\#4.truncate删除不能回滚，delete删除可以回滚
+## DDL语句 {#ddl语句}
 
-\## DDL语句
-\### 库和表的管理
-库的管理：
 
-	一、创建库
-	create database 库名
-	二、删除库
-	drop database 库名
-表的管理：
-	#1.创建表
+### 库和表的管理 {#库和表的管理}
 
-CREATE TABLE IF NOT EXISTS stuinfo(
-    stuId INT,
-    stuName VARCHAR(20),
-    gender CHAR,
-    bornDate DATETIME
 
-);
+#### 库的管理： {#库的管理}
 
-DESC studentinfo;
-\#2.修改表 alter
-语法：ALTER TABLE 表名 ADD|MODIFY|DROP|CHANGE COLUMN 字段名 【字段类型】;
+-   创建库
+    {{< highlight sql >}}
+    create database 库名
+    {{< /highlight >}}
+-   删除库
+    {{< highlight sql >}}
+    drop database 库名
+    {{< /highlight >}}
 
-\#①修改字段名
-ALTER TABLE studentinfo CHANGE  COLUMN sex gender CHAR;
 
-\#②修改表名
-ALTER TABLE stuinfo RENAME [TO]  studentinfo;
-\#③修改字段类型和列级约束
-ALTER TABLE studentinfo MODIFY COLUMN borndate DATE ;
+#### 表的管理： {#表的管理}
 
-\#④添加字段
+1.  创建表
+    {{< highlight sql >}}
+     CREATE TABLE IF NOT EXISTS stuinfo(
+       stuId INT,
+       stuName VARCHAR(20),
+       gender CHAR,
+       bornDate DATETIME
+    );
+    {{< /highlight >}}
 
-ALTER TABLE studentinfo ADD COLUMN email VARCHAR(20) first;
-\#⑤删除字段
-ALTER TABLE studentinfo DROP COLUMN email;
+2.  修改表alter
+    {{< highlight sql >}}
+    -- 语法：
+       ALTER TABLE 表名 ADD|MODIFY|DROP|CHANGE COLUMN 字段名 【字段类型】;
+    -- 修改字段名
+    ALTER TABLE studentinfo CHANGE  COLUMN sex gender CHAR;
+    -- 修改表名
+    ALTER TABLE stuinfo RENAME [TO]  studentinfo;
+    -- 修改字段类型和列级约束
+    ALTER TABLE studentinfo MODIFY COLUMN borndate DATE ;
+    -- 添加字段
+    ALTER TABLE studentinfo ADD COLUMN email VARCHAR(20) first;
+    -- 删除字段
+    ALTER TABLE studentinfo DROP COLUMN email;
+    {{< /highlight >}}
 
-\#3.删除表
+3.  删除表
 
+<!--listend-->
+
+{{< highlight sql >}}
 DROP TABLE [IF EXISTS] studentinfo;
+{{< /highlight >}}
 
-\### 常见类型
 
-整型：
+## 常见类型 {#常见类型}
 
-小数：
-    浮点型
-    定点型
-字符型：
-日期型：
-Blob类型：
+-   整型：
+-   小数：浮点型,定点型
+-   字符型：
+-   日期型：
+-   Blob类型：
 
-\### 常见约束
 
-NOT NULL
-DEFAULT
-UNIQUE
-CHECK
-PRIMARY KEY
-FOREIGN KEY
+## 常见约束 {#常见约束}
 
-\## 数据库事务
-\### 含义
-	通过一组逻辑操作单元（一组DML——sql语句），将数据从一种状态切换到另外一种状态
+-   NOT NULL
+-   DEFAULT
+-   UNIQUE
+-   CHECK
+-   PRIMARY KEY
+-   FOREIGN KEY
 
-\### 特点
-	（ACID）
-	原子性：要么都执行，要么都回滚
-	一致性：保证数据的状态操作前和操作后保持一致
-	隔离性：多个事务同时操作相同数据库的同一个数据时，一个事务的执行不受另外一个事务的干扰
-	持久性：一个事务一旦提交，则数据将持久化到本地，除非其他事务对其进行修改
 
-相关步骤：
+## 数据库事务 {#数据库事务}
 
-1、开启事务
-2、编写事务的一组逻辑操作单元（多条sql语句）
-3、提交事务或回滚事务
+-   含义:
 
-\### 事务的分类：
+    通过一组逻辑操作单元（一组DML——sql语句），将数据从一种状态切换到另外一种状态
 
-隐式事务，没有明显的开启和结束事务的标志
+-   特点（ACID）
+    1.  原子性：要么都执行，要么都回滚
+    2.  一致性：保证数据的状态操作前和操作后保持一致
+    3.  隔离性：多个事务同时操作相同数据库的同一个数据时，一个事务的执行不受另外一个事务的干扰
+    4.  持久性：一个事务一旦提交，则数据将持久化到本地，除非其他事务对其进行修改
 
-比如
-insert、update、delete语句本身就是一个事务
+-   相关步骤：
+    1.  开启事务
+    2.  编写事务的一组逻辑操作单元（多条sql语句）
+    3.  提交事务或回滚事务
 
-显式事务，具有明显的开启和结束事务的标志
 
-1、开启事务
-取消自动提交事务的功能
+## 事务的分类： {#事务的分类}
 
-2、编写事务的一组逻辑操作单元（多条sql语句）
-insert
-update
-delete
+-   隐式事务，没有明显的开启和结束事务的标志
 
-		3、提交事务或回滚事务
-\### 使用到的关键字
+    比如insert、update、delete语句本身就是一个事务
+
+-   显式事务，具有明显的开启和结束事务的标志
+    1.  开启事务取消自动提交事务的功能
+    2.  编写事务的一组逻辑操作单元（多条sql语句）insert,update,delete
+    3.  提交事务或回滚事务
+
+
+## 事务使用到的关键字 {#事务使用到的关键字}
 
 set autocommit=0;
+
 start transaction;
+
 commit;
+
 rollback;
 
 savepoint  断点
+
 commit to 断点
+
 rollback to 断点
 
-\### 事务的隔离级别:
+
+## 事务的隔离级别: {#事务的隔离级别}
 
 事务并发问题如何发生？
 
-	当多个事务同时操作同一个数据库的相同数据时
-事务的并发问题有哪些？
+当多个事务同时操作同一个数据库的相同数据时事务的并发问题有哪些？
 
-脏读：一个事务读取到了另外一个事务未提交的数据
-不可重复读：同一个事务中，多次读取到的数据不一致
-幻读：一个事务读取数据时，另外一个事务进行更新，导致第一个事务读取到了没有更新的数据
+-   脏读：一个事务读取到了另外一个事务未提交的数据
+-   不可重复读：同一个事务中，多次读取到的数据不一致
+-   幻读：一个事务读取数据时，另外一个事务进行更新，导致第一个事务读取到了没有更新的数据
 
-如何避免事务的并发问题？
+如何避免事务的并发问题？通过设置事务的隔离级别
 
-通过设置事务的隔离级别
-1、READ UNCOMMITTED
-2、READ COMMITTED 可以避免脏读
-3、REPEATABLE READ 可以避免脏读、不可重复读和一部分幻读
-4、SERIALIZABLE可以避免脏读、不可重复读和幻读
+1.  READ UNCOMMITTED
+2.  READ COMMITTED 可以避免脏读
+3.  REPEATABLE READ 可以避免脏读、不可重复读和一部分幻读
+4.  SERIALIZABLE可以避免脏读、不可重复读和幻读
 
 设置隔离级别：
 
-	set session|global  transaction isolation level 隔离级别名;
+set session|global  transaction isolation level 隔离级别名;
+
 查看隔离级别：
 
 select @@tx_isolation;
 
-\## 视图
-含义：理解成一张虚拟的表
 
-视图和表的区别：
+## 视图 {#视图}
 
-使用方式	占用物理空间
+-   含义：理解成一张虚拟的表
+-   视图和表的区别：
 
-视图	完全相同	不占用，仅仅保存的是sql逻辑
+    使用方式	占用物理空间
 
-表	完全相同	占用
+    视图	完全相同	不占用，仅仅保存的是sql逻辑
 
-视图的好处：
+    表	完全相同	占用
 
-1、sql语句提高重用性，效率高
-2、和表实现了分离，提高了安全性
+-   视图的好处：
+    1.  sql语句提高重用性，效率高
+    2.  和表实现了分离，提高了安全性
 
-\### 视图的创建
-	语法：
-	CREATE VIEW  视图名
-	AS
-	查询语句;
-\### 视图的增删改查
-	1、查看视图的数据 ★
 
-SELECT \* FROM my_v4;
-SELECT \* FROM my_v1 WHERE last_name='Partners';
+## 视图的创建 {#视图的创建}
 
-2、插入视图的数据
-INSERT INTO my_v4(last_name,department_id) VALUES('虚竹',90);
+-   语法：
+    {{< highlight sql >}}
+    CREATE VIEW  视 图名
+    AS
+    查询语句;
+    {{< /highlight >}}
 
-3、修改视图的数据
 
-UPDATE my_v4 SET last_name `'梦姑' WHERE last_name`'虚竹';
+### 视图的增删改查 {#视图的增删改查}
 
-	4、删除视图的数据
-	DELETE FROM my_v4;
-\### 某些视图不能更新
-	包含以下关键字的sql语句：分组函数、distinct、group  by、having、union或者union all
-	常量视图
-	Select中包含子查询
-	join
-	from一个不能更新的视图
-	where子句的子查询引用了from子句中的表
-\### 视图逻辑的更新
-	#方式一：
-	CREATE OR REPLACE VIEW test_v7
-	AS
-	SELECT last_name FROM employees
-	WHERE employee_id&gt;100;
+1.  查看视图的数据 ★
+    {{< highlight sql >}}
+    SELECT * FROM my_v4;
+    SELECT * FROM my_v1 WHERE last_name='Partners';
+    {{< /highlight >}}
+2.  插入视图的数据
+    {{< highlight sql >}}
+    INSERT INTO my_v4(last_name,department_id) VALUES('虚竹',90);
+    {{< /highlight >}}
+3.  修改视图的数据
+    {{< highlight sql >}}
+    UPDATE my_v4 SET last_name ='梦姑' WHERE last_name='虚竹';
+    {{< /highlight >}}
 
-\#方式二:
-ALTER VIEW test_v7
-AS
-SELECT employee_id FROM employees;
+4.  删除视图的数据
+    {{< highlight sql >}}
+    DELETE FROM my_v4;
+    {{< /highlight >}}
 
-	SELECT \* FROM test_v7;
-\### 视图的删除
-	DROP VIEW test_v1,test_v2,test_v3;
-\### 视图结构的查看
-	DESC test_v7;
-	SHOW CREATE VIEW test_v7;
 
-\## 存储过程
+### 某些视图不能更新 {#某些视图不能更新}
 
-含义：一组经过预先编译的sql语句的集合
-好处：
+{{< highlight sql >}}
+-- 包含以下关键字的sql语句：分组函数、distinct、group  by、having、union或者union all
+-- 常量视图
+Select中包含子查询
+join
+from 一个不能更新的视图
+where子句的子查询引用了from子句中的表
+{{< /highlight >}}
 
-1、提高了sql语句的重用性，减少了开发程序员的压力
-2、提高了效率
-3、减少了传输次数
 
-分类：
+### 视图逻辑的更新 {#视图逻辑的更新}
 
-	1、无返回无参
-	2、仅仅带in类型，无返回有参
-	3、仅仅带out类型，有返回无参
-	4、既带in又带out，有返回有参
-	5、带inout，有返回有参
-	注意：in、out、inout都可以在一个存储过程中带多个
-\### 创建存储过程
-语法：
+-   方式一：
+    {{< highlight sql >}}
+    CREATE OR REPLACE VIEW test_v7
+    AS
+    SELECT last_name FROM employees
+    WHERE employee_id>100;
+    {{< /highlight >}}
+-   方式二:
+    {{< highlight sql >}}
+    ALTER VIEW test_v7
+    AS
+    SELECT employee_id FROM employees;
 
-create procedure 存储过程名(in|out|inout 参数名  参数类型,...)
-begin
-    存储过程体
+    SELECT * FROM test_v7;
+    {{< /highlight >}}
 
-end
+
+### 视图的删除 {#视图的删除}
+
+DROP VIEW test_v1,test_v2,test_v3;
+
+
+### 视图结构的查看 {#视图结构的查看}
+
+DESC test_v7;
+
+SHOW CREATE VIEW test_v7;
+
+
+## 存储过程 {#存储过程}
+
+-   含义：一组经过预先编译的sql语句的集合
+-   好处：
+    1.  提高了sql语句的重用性，减少了开发程序员的压力
+    2.  提高了效率
+    3.  减少了传输次数
+-   分类：
+    1.  无返回无参
+    2.  仅仅带in类型，无返回有参
+    3.  仅仅带out类型，有返回无参
+    4.  既带in又带out，有返回有参
+    5.  带inout，有返回有参
+
+注意：in、out、inout都可以在一个存储过程中带多个
+
+
+### 创建存储过程 {#创建存储过程}
+
+-   语法：
+    {{< highlight sql >}}
+    create procedure 存储过程名(in|out|inout 参数名  参数类型,...)
+    begin
+        存储过程体
+    end
+    {{< /highlight >}}
 
 类似于方法：
 
+{{< highlight java >}}
 修饰符 返回类型 方法名(参数类型 参数名,...){
-
-    方法体;
+  方法体;
 }
+{{< /highlight >}}
 
-注意
+-   注意
+    1.  需要设置新的结束标记
 
-1、需要设置新的结束标记
-delimiter 新的结束标记
-示例：
-delimiter $
+        delimiter 新的结束标记
 
-CREATE PROCEDURE 存储过程名(IN|OUT|INOUT 参数名  参数类型,...)
-BEGIN
-    sql语句1;
-    sql语句2;
+        示例：
 
-END $
+        delimiter $
+        {{< highlight sql >}}
+        CREATE PROCEDURE 存储过程名(IN|OUT|INOUT 参数名  参数类型,...)
+        BEGIN
+         sql语句1;
+         sql语句2;
+        END $
+        {{< /highlight >}}
+    2.  存储过程体中可以有多条sql语句，如果仅仅一条sql语句，则可以省略begin end
+    3.  参数前面的符号的意思
 
-2、存储过程体中可以有多条sql语句，如果仅仅一条sql语句，则可以省略begin end
+        in:该参数只能作为输入 （该参数不能做返回值）
 
-3、参数前面的符号的意思
-in:该参数只能作为输入 （该参数不能做返回值）
-out：该参数只能作为输出（该参数只能做返回值）
-inout：既能做输入又能做输出
+        out：该参数只能作为输出（该参数只能做返回值）
 
-	call 存储过程名(实参列表)
-\## 函数
+        inout：既能做输入又能做输出
 
-\### 创建函数
+
+### 调用存储过程 {#调用存储过程}
+
+call 存储过程名(实参列表)
+
+
+## 函数 {#函数}
+
+
+### 创建函数 {#创建函数}
 
 学过的函数：LENGTH、SUBSTR、CONCAT等
-语法：
 
-CREATE FUNCTION 函数名(参数名 参数类型,...) RETURNS 返回类型
-BEGIN
-    函数体
+-   语法：
+    {{< highlight sql >}}
+    CREATE FUNCTION 函数名(参数名 参数类型,...) RETURNS 返回类型
+    BEGIN
+        函数体
+    END
+    {{< /highlight >}}
 
-END
 
-\### 调用函数
-	SELECT 函数名（实参列表）
+### 调用函数 {#调用函数}
 
-\### 函数和存储过程的区别
+SELECT 函数名（实参列表）
 
-        关键字		调用语法	返回值			应用场景
-函数		FUNCTION	SELECT 函数()	只能是一个		一般用于查询结果为一个值并返回时，当有返回值而且仅仅一个
-存储过程	PROCEDURE	CALL 存储过程()	可以有0个或多个		一般用于更新
 
-\## 流程控制结构
+## 函数和存储过程的区别 {#函数和存储过程的区别}
 
-\### 系统变量
-一、全局变量
+| 关键字 | 调用语法              | 返回值   | 应用场景                     |
+|-----|-------------------|-------|--------------------------|
+|      |                       |          |                              |
+| 函数 | FUNCTION	SELECT 函数() | 只能是一个 | 一般用于查询结果为一个值并返回时，当有返回值而且仅仅一个 |
+|      |                       |          |                              |
+| 存储过程 | PROCEDURE	CALL 存储过程() | 可以有0个或多个 | 一般用于更新                 |
+|      |                       |          |                              |
 
-作用域：针对于所有会话（连接）有效，但不能跨重启
 
-查看所有全局变量
-SHOW GLOBAL VARIABLES;
-查看满足条件的部分系统变量
-SHOW GLOBAL VARIABLES LIKE '%char%';
-查看指定的系统变量的值
-SELECT @@global.autocommit;
-为某个系统变量赋值
-SET @@global.autocommit=0;
-SET GLOBAL autocommit=0;
+## 流程控制结构 {#流程控制结构}
 
-二、会话变量
 
-作用域：针对于当前会话（连接）有效
+### 系统变量 {#系统变量}
 
-查看所有会话变量
-SHOW SESSION VARIABLES;
-查看满足条件的部分会话变量
-SHOW SESSION VARIABLES LIKE '%char%';
-查看指定的会话变量的值
-SELECT @@autocommit;
-SELECT @@session.tx_isolation;
-为某个会话变量赋值
-SET @@session.tx_isolation='read-uncommitted';
-SET SESSION tx_isolation='read-committed';
+1.  全局变量
+    作用域：针对于所有会话（连接）有效，但不能跨重启
+    {{< highlight sql >}}
+    -- 查看所有全局变量
+    SHOW GLOBAL VARIABLES;
+    -- 查看满足条件的部分系统变量
+    SHOW GLOBAL VARIABLES LIKE '%char%';
+    -- 查看指定的系统变量的值
+    SELECT @@global.autocommit;
+    -- 为某个系统变量赋值
+    SET @@global.autocommit=0;
+    SET GLOBAL autocommit=0;
+    {{< /highlight >}}
+2.  会话变量
+    作用域：针对于当前会话（连接）有效
+    {{< highlight sql >}}
+    -- 查看所有会话变量
+    SHOW SESSION VARIABLES;
+    -- 查看满足条件的部分会话变量
+    SHOW SESSION VARIABLES LIKE '%char%';
+    -- 查看指定的会话变量的值
+    SELECT @@autocommit;
+    SELECT @@session.tx_isolation;
+    -- 为某个会话变量赋值
+    SET @@session.tx_isolation='read-uncommitted';
+    SET SESSION tx_isolation='read-committed';
+    {{< /highlight >}}
 
-\### 自定义变量
-一、用户变量
 
-声明并初始化：
+### 自定义变量 {#自定义变量}
 
-	SET @变量名=值;
-	SET @变量名:=值;
-	SELECT @变量名:=值;
-赋值：
+1.  用户变量
+    -   声明并初始化：
+        {{< highlight sql >}}
+        SET @变量   名=值;
+        SET @变量名:=值;
+        SELECT @变量名:=值;
+        {{< /highlight >}}
+    -   赋值：
+        {{< highlight sql >}}
+        -- 方式一：一般用于赋简单的值
+        SET 变量名=值;
+        SET 变量名  :=值;
+        SELECT 变量名:=值;
+        -- 方式二：一般用于赋表 中的字段值
+        SELECT 字段名或表达式 INTO 变量
+        FROM 表;
+        {{< /highlight >}}
 
-方式一：一般用于赋简单的值
-SET 变量名=值;
-SET 变量名:=值;
-SELECT 变量名:=值;
+    -   使用
 
-方式二：一般用于赋表 中的字段值
-SELECT 字段名或表达式 INTO 变量
-FROM 表;
+        select @变量名;
 
-使用：
+2.  局部变量
+    {{< highlight sql >}}
+    -- 声明：
+            declare 变量名 类型 【default 值】;
+    -- 赋值：
 
-select @变量名;
+        -- 方式一：一般用于赋简单的值
+        SET 变量名=值;
+        SET 变量名:=值;
+        SELECT 变量名:=值;
 
-二、局部变量
+        -- 方式二：一般用于赋表 中的字段值
+        SELECT 字段名或表达式 INTO 变量
+        FROM 表;
 
-声明：
-
-	declare 变量名 类型 【default 值】;
-赋值：
-
-方式一：一般用于赋简单的值
-SET 变量名=值;
-SET 变量名:=值;
-SELECT 变量名:=值;
-
-方式二：一般用于赋表 中的字段值
-SELECT 字段名或表达式 INTO 变量
-FROM 表;
-
-使用：
-
-select 变量名
+    -- 使用：
+        select 变量名
+    {{< /highlight >}}
 
 二者的区别：
 
-			作用域			定义位置		语法
-用户变量	当前会话		会话的任何地方		加@符号，不用指定类型
-局部变量	定义它的BEGIN END中 	BEGIN END的第一句话	一般不用加@,需要指定类型
+| 变量 | 作用域         | 定义位置     | 语法             |
+|----|-------------|----------|----------------|
+|      |                |              |                  |
+| 用户变量 | 当前会话       | 会话的任何地方 | 加@符号，不用指定类型 |
+| 局部变量 | 定义它的BEGIN END中 | BEGIN END的第一 | 句话	一般不用加@,需要指定类型 |
+|      |                |              |                  |
 
-\### 分支
-一、if函数
-	语法：if(条件，值1，值2)
-	特点：可以用在任何位置
 
-二、case语句
+## 分支 {#分支}
+
+1.  if函数
+    语法：if(条件，值1，值2)
+
+    特点：可以用在任何位置
+
+2.  case语句
+
+    语法：
+    {{< highlight sql >}}
+    -- 情况一：类似于switch
+    case 表达式
+    when 值1 then 结果1或语句1(如果是语句，需要加分号)
+    when 值2 then 结果2或语句2(如果是语句，需要加分号)
+    ...
+    else 结果n或语句n(如果是语句，需要加分号)
+    end 【case】（如果是放在begin end中需要加上case，如果放在select后面不需要）
+
+    -- 情况二：类似于多重if
+    case
+    when 条件1 then 结果1或语句1(如果是语句，需要加分号)
+    when 条件2 then 结果2或语句2(如果是语句，需要加分号)
+    ...
+    else 结果n或语句n(如果是语句，需要加分号)
+         end 【case】（如果是放在begin end中需要加上case，如果放在select后面不需要）
+    {{< /highlight >}}
+
+特点：可以用在任何位置
+
+1.  if elseif语句
 
 语法：
 
-情况一：类似于switch
-case 表达式
-when 值1 then 结果1或语句1(如果是语句，需要加分号)
-when 值2 then 结果2或语句2(如果是语句，需要加分号)
-...
-else 结果n或语句n(如果是语句，需要加分号)
-end 【case】（如果是放在begin end中需要加上case，如果放在select后面不需要）
-
-情况二：类似于多重if
-case
-when 条件1 then 结果1或语句1(如果是语句，需要加分号)
-when 条件2 then 结果2或语句2(如果是语句，需要加分号)
-...
-else 结果n或语句n(如果是语句，需要加分号)
-end 【case】（如果是放在begin end中需要加上case，如果放在select后面不需要）
-
-特点：
-	可以用在任何位置
-
-三、if elseif语句
-
-语法：
-
+{{< highlight sql >}}
 if 情况1 then 语句1;
 elseif 情况2 then 语句2;
 ...
 else 语句n;
 end if;
+{{< /highlight >}}
 
-特点：
-	只能用在begin end中！！！！！！！！！！！！！！！
+特点：只能用在begin end中！！！！！！！！！！！！！！！
 
 三者比较：
-			应用场合
-	if函数		简单双分支
-	case结构	等值判断 的多分支
-	if结构		区间判断 的多分支
 
-\### 循环
+| 分支   | 应用场合 |
+|------|------|
+|        |          |
+| if函数 | 简单双分支 |
+| case结构 | 等值判断的多分支 |
+| if结构 | 区间判断的多分支 |
+
+
+## 循环 {#循环}
 
 语法：
 
+{{< highlight sql >}}
 【标签：】WHILE 循环条件  DO
-    循环体
+  循环体
 END WHILE 【标签】;
+{{< /highlight >}}
 
 特点：
 
-只能放在BEGIN END里面
-
-如果要搭配leave跳转语句，需要使用标签，否则可以不用标签
-
-leave类似于java中的break语句，跳出所在循环！！！
+-   只能放在BEGIN END里面
+-   如果要搭配leave跳转语句，需要使用标签，否则可以不用标签
+-   leave类似于java中的break语句，跳出所在循环！！！
