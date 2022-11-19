@@ -334,7 +334,7 @@ uglyURLs = true
     #      Open Graph、Atom、RSS
 
     # 站点的创建时间  注意：请保持此格式，更改数字
-    siteCreatedTime = "2021-07-20T20:17:43+00:00"
+    siteCreatedTime = "2022-07-20T20:17:43+00:00"
 
     # 站点的推特帐号  用于 Twitter Cards
     siteTwitter = "reuixiy"
@@ -570,12 +570,12 @@ uglyURLs = true
     # 说明：仅在生产环境（production）下渲染
 
     # 是否开启（全局设置）
-    enableComments = false
+    enableComments = true
     # 说明：文章的 Front Matter 中的 `comments`
     #      的优先级高于此处
 
     # 直接加载评论，不需要手动点击按钮加载
-    autoLoadComments = false
+    autoLoadComments = true
 
     ## Disqus
     enableDisqus = false
@@ -686,7 +686,7 @@ uglyURLs = true
     # 注意：只支持 HSL 颜色值
 
     # 文章的内容宽度
-    postWidth = 36
+    postWidth = 50
     # 说明：如果留空（""），则用 42 作为默认值
     #      单位：em
 
