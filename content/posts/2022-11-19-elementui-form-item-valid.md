@@ -1,7 +1,7 @@
 +++
 title = "Element UI Form表单自定义验证规则"
-lastmod = 2022-11-19T09:33:09+08:00
-tags = ["Form"]
+lastmod = 2022-11-19T09:56:32+08:00
+tags = ["Form", "Valid"]
 categories = ["Element"]
 draft = false
 author = "congpeitong"
