@@ -686,7 +686,7 @@ uglyURLs = true
     # 注意：只支持 HSL 颜色值
 
     # 文章的内容宽度
-    postWidth = 50
+    postWidth = 45
     # 说明：如果留空（""），则用 42 作为默认值
     #      单位：em
 
@@ -773,7 +773,7 @@ uglyURLs = true
     # 文章目录
 
     # 是否开启（全局设置）
-    enableTOC = false
+    enableTOC = true
     # 说明：文章的 Front Matter 中的 `toc`
     #      的优先级高于此处
 
@@ -841,7 +841,7 @@ uglyURLs = true
     enableImageHost = false
 
     # 图片外链地址
-    imageHostURL = "https://example.com/"
+    imageHostURL = "https://congpeitong.github.io/"
 
     # 是否将 HTML 的头部元数据中的图片链接也替换为外链
     headAlso = false
@@ -953,7 +953,7 @@ uglyURLs = true
     enableParagraphIndent = true
 
     # 是否缩进第一段（全局设置）
-    indentFirstParagraph = false
+    indentFirstParagraph = true
     # 说明：文章的 Front Matter 中的 `indentFirstParagraph`
     #      的优先级高于此处
 
@@ -1181,7 +1181,7 @@ uglyURLs = true
     displayBackToTopInHome = true
 
     # 是否在移动端显示
-    displayBackToTopOnMobile = false
+    displayBackToTopOnMobile = true
 
     # 按钮图标
     backToTopIcon = "arrow-up"
@@ -1222,7 +1222,7 @@ uglyURLs = true
     # 自定义页脚（支持 Markdown）
     customFooter = ""
 
-    displayBusuanziSiteUVAndPV = false
+    displayBusuanziSiteUVAndPV = true
     busuanziSiteUVText = "本站访客数"
     busuanziSiteUVIcon = "user"
     busuanziSitePVText = "本站访问量"
@@ -1260,7 +1260,7 @@ uglyURLs = true
     # 是否开启竖直滚动
     enableOverflowY = true
     # 最大高度
-    maxHeight = 20
+    maxHeight = -1
     # 单位：em
 
     # 是否开启复制
