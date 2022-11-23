@@ -1,6 +1,6 @@
 +++
 title = "Element UI Form表单自定义验证规则"
-lastmod = 2022-11-23T11:24:16+08:00
+lastmod = 2022-11-23T13:48:09+08:00
 tags = ["Form", "Valid"]
 categories = ["Element"]
 draft = false
@@ -123,6 +123,7 @@ Form表单提供了表单校验功能，只需要通过rules属性传入特定�
      callback(new Error("请输入统一社会信用代码"));
    }
  }
+ // 密码格式校验
  checkPwd: function (rule, value, callback) {
      let pattern = /^(?=.*[\d])(?=.*[a-zA-Z]).{8,}$/;
      if (!pattern.test(value)) {
