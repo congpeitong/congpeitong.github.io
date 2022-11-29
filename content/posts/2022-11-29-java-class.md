@@ -1,7 +1,8 @@
 +++
 title = "Java 类"
-lastmod = 2022-11-29T18:08:39+08:00
-tags = ["Java", "Class"]
+lastmod = 2022-11-29T18:11:05+08:00
+tags = ["Class"]
+categories = ["Java"]
 draft = false
 author = "congpeitong"
 +++
