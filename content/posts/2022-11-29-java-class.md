@@ -1,10 +1,9 @@
 +++
 title = "Java 类"
-lastmod = 2022-11-29T18:11:05+08:00
+author = ["congpeitong"]
 tags = ["Class"]
 categories = ["Java"]
 draft = false
-author = "congpeitong"
 +++
 
 ## 抽象类 {#抽象类}
